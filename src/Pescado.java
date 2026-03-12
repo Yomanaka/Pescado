@@ -18,6 +18,7 @@ public class Pescado {
         setPeso(peso);
         setPrecoCompra(precoCompra);
         setPrecoVenda(precoCompra * 2);
+        setEntrada(LocalDate.now());
     }
     // Método getters para a especie
     public Especie getEspecie() {
@@ -36,10 +37,16 @@ public class Pescado {
     public double getPrecoCompra() {
         return this.precoCompra;
     }
-    // Método getters para o preço da vendad
+    // Método getters para o preço da venda
 
     public double getPrecoVenda() {
         return this.precoVenda;
+    }
+    //Método para preenchimento automático da data
+
+
+    public LocalDate getEntrada() {
+        return this.entrada;
     }
 
     // Método setters para a especie com a prevenção
@@ -67,5 +74,9 @@ public class Pescado {
     public void setPrecoVenda(double precoVenda) {
         if(precoVenda < precoCompra) throw new IllegalArgumentException("Peixe não pode ser vendido por menos que foi comprado");
         this.precoVenda = precoVenda;
+    }
+
+    public void setEntrada(LocalDate entrada) {
+        this.entrada = entrada;
     }
 }
