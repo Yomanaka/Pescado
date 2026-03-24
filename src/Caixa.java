@@ -10,7 +10,9 @@ public class Caixa {
     }
     //metodo para registar a venda
     public void registrarVenda(String nomePeixe, double valor){
+        //soma o saldo de cada venda
         this.saldo += valor;
+        //cria uma lista das transações realizadas
         transacoes.add("Venda: " + nomePeixe + " - R$: " + valor);
     }
     //deixa o saldo publico para ser acessado de outro lugar e consecutivamente impresso na tela, tanto quanto as transações
