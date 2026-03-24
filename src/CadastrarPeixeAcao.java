@@ -13,10 +13,10 @@ public class CadastrarPeixeAcao implements Acao{
     public void executar(){
         System.out.println("Digite o nome do peixe: ");
         String peixe = leitor.nextLine();
-        System.out.println("1 - PEIXEDOCE\n" +
-                "2 - PEIXEMAR\n" +
-                "3 - MARISCO\n" +
-                "4 - CRUSTACEO\n");
+        System.out.println("\nInforme um número relativo a espécie"+"\n1 - PEIXEDOCE" +
+                "\n2 - PEIXEMAR" +
+                "\n3 - MARISCO" +
+                "\n4 - CRUSTACEO");
         Pescado.Especie especieEscolhida = null;
         int opcaoEspecie = leitor.nextInt();
         switch(opcaoEspecie){
