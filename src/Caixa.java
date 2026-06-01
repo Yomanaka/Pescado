@@ -15,7 +15,7 @@ public class Caixa {
         //cria uma lista das transações realizadas
         transacoes.add("Venda: " + nomePeixe + " - R$: " + valor);
     }
-    //deixa o saldo publico para ser acessado de outro lugar e consecutivamente impresso na tela, tanto quanto as transações
+    //usa o método get saldo, para verificar o saldo atual
     public double getSaldo(){return this.saldo;}
 
     public List<String> getTransacoes() {return transacoes;}

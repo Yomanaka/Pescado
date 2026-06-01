@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class VerRelatorioAcao implements Acao {
     //caixa da loja para consultar os dados financeiros
     private Caixa meuCaixa;
@@ -9,14 +11,12 @@ public class VerRelatorioAcao implements Acao {
 
     @Override
     public void executar() {
-        System.out.println("--- RELATÓRIO FINANCEIRO ---");
-        // Mostra o saldo
-        System.out.println("Saldo atual R$: " + meuCaixa.getSaldo());
+        String acumulador ="";
 
-        System.out.println("\n--- HISTÓRICO DE VENDAS ---");
-        // passa em todas as listas de transação e retorna cada uma no consele
+        // passa em todas as listas de transação e retorna cada uma no console
         for (String t : meuCaixa.getTransacoes()){
-            System.out.println(t);
+            acumulador += t + "\n";
         }
+            JOptionPane.showMessageDialog(null,"--- RELATÓRIO FINANCEIRO ---\n" + "Saldo atual R$: " + meuCaixa.getSaldo() + "\n" +"\n--- HISTÓRICO DE VENDAS ---" + acumulador);
     }
 }

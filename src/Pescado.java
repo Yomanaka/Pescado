@@ -54,9 +54,9 @@ public class Pescado {
         if(especie == null) throw new IllegalArgumentException("Especie não pode ser nulo");
         this.especie = especie;
     }
-    // Método setters para o nome com a prevenção
+    // Método setters para o nome com a prevenção, lembre o isBlank so funciona a partir do jdk 11, alterar para empty para a apresentação
     public void setNome(String nome) {
-        if(nome == null || nome.isBlank()) throw new IllegalArgumentException("Peixe não pode ser nulo");
+        if(nome == null || nome.isEmpty()) throw new IllegalArgumentException("Peixe não pode ser nulo");
         this.nome = nome;
     }
     // Método setters para o peso com a prevenção

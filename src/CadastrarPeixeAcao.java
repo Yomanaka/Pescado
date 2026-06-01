@@ -1,24 +1,18 @@
-import java.util.Scanner;
+import javax.swing.*;
 public class CadastrarPeixeAcao implements Acao{
     private Estoque peixes;
-    private Scanner leitor;
 
 
-    public CadastrarPeixeAcao (Estoque peixes, Scanner leitor){
+    public CadastrarPeixeAcao (Estoque peixes){
         this.peixes = peixes;
-        this.leitor = leitor;
     }
 
     @Override
     public void executar(){
-        System.out.println("Digite o nome do peixe: ");
-        String peixe = leitor.nextLine();
-        System.out.println("\nInforme um número relativo a espécie"+"\n1 - PEIXEDOCE" +
-                "\n2 - PEIXEMAR" +
-                "\n3 - MARISCO" +
-                "\n4 - CRUSTACEO");
+        String peixe = JOptionPane.showInputDialog("Digite o nome do peixe: ");
         Pescado.Especie especieEscolhida = null;
-        int opcaoEspecie = leitor.nextInt();
+        int opcaoEspecie = Integer.parseInt(JOptionPane.showInputDialog("1- Peixe de Água doce\n "+ "2- Peixe de Água salgada\n "
+                +"3- Marisco\n "+ "4- Crustaceo\n "+"Digite o núemro equivalente: \n"));
         switch(opcaoEspecie){
             case 1:
                 especieEscolhida = Pescado.Especie.PEIXEDOCE;
@@ -33,15 +27,12 @@ public class CadastrarPeixeAcao implements Acao{
                 especieEscolhida = Pescado.Especie.CRUSTACEO;
                 break;
         }
-        System.out.println("Informe o peso do peixe: ");
-        double peso = leitor.nextDouble();
-        System.out.println("Informe o preço de compra: ");
-        double preco = leitor.nextDouble();
-        // Tira o bug do teclado pegar buffer do enter
-        leitor.nextLine();
+        double peso = Double.parseDouble(JOptionPane.showInputDialog("Informe o peso do peixe em KG: "));
+        double preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o preço de compra: "));
         //Recebe o novo peixe cadastrado
-        Pescado novoPeixe = new Pescado(peixe, especieEscolhida,peso ,preco );
+        Pescado novoPeixe = new Pescado(peixe, especieEscolhida,peso ,preco);
         //Inlcui na lista / estoque dos peixes
         peixes.adicionarPeixe(novoPeixe);
+        JOptionPane.showMessageDialog(null,"Peixe cadastrado com sucesso");
     }
 }

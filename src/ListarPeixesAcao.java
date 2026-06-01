@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class ListarPeixesAcao implements Acao{
     // gaveta que guarda a referência do nosso banco de dados em memória
     private Estoque meuEstoque;
@@ -8,6 +10,6 @@ public class ListarPeixesAcao implements Acao{
 
     @Override
     public void executar() {
-        meuEstoque.listarPeixes();
+        JOptionPane.showMessageDialog(null, meuEstoque.listarPeixes());
     }
 }

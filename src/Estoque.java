@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.*;
 public class Estoque {
     private List<Pescado> listaDePeixes;
 
@@ -11,12 +12,14 @@ public class Estoque {
         listaDePeixes.add(peixeNovo);
     }
 
-    public void listarPeixes(){
+    public String listarPeixes(){
+        String acumulador ="";
         for(int i = 0; i < listaDePeixes.size();i++){
             // acessa o peixe da posição atual do loop para mostrar os dados dele na tela
             Pescado peixeAtual =  listaDePeixes.get(i);
-            System.out.println((i+1) + " - Peixe: " + peixeAtual.getNome() + " Peso: " + peixeAtual.getPeso() + " Valor: " + peixeAtual.getPrecoVenda());
+            acumulador += (i+1) +"Peixe: " + peixeAtual.getNome() + "Peso: " + peixeAtual.getPeso() + "Valor: "+ peixeAtual.getPrecoVenda() + "\n";
         }
+        return acumulador;
     }
     //esse acessa o peixe pelo indíce, retorna e o remove da lista, tudo em uma tacada so a pardir do remove
     public Pescado pegarPeixe(int numeroDigitado){
