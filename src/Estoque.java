@@ -1,6 +1,8 @@
+import br.edu.peixaria.domain.model.Pescado;
+
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.*;
+
 public class Estoque {
     private List<Pescado> listaDePeixes;
 

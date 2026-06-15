@@ -1,3 +1,5 @@
+import br.edu.peixaria.domain.model.Pescado;
+
 import javax.swing.*;
 public class CadastrarPeixeAcao implements Acao{
     private Estoque peixes;
@@ -29,10 +31,15 @@ public class CadastrarPeixeAcao implements Acao{
         }
         double peso = Double.parseDouble(JOptionPane.showInputDialog("Informe o peso do peixe em KG: "));
         double preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o preço de compra: "));
-        //Recebe o novo peixe cadastrado
-        Pescado novoPeixe = new Pescado(peixe, especieEscolhida,peso ,preco);
-        //Inlcui na lista / estoque dos peixes
-        peixes.adicionarPeixe(novoPeixe);
-        JOptionPane.showMessageDialog(null,"Peixe cadastrado com sucesso");
+
+        try{
+            //Recebe o novo peixe cadastrado
+            Pescado novoPeixe = new Pescado(peixe, especieEscolhida,peso ,preco);
+            //Inlcui na lista / estoque dos peixes
+            peixes.adicionarPeixe(novoPeixe);
+            JOptionPane.showMessageDialog(null,"Peixe cadastrado com sucesso");
+        }catch (Exception erro){
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar: " + erro.getMessage());
+        }
     }
 }

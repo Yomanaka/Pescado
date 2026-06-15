@@ -1,3 +1,5 @@
+import br.edu.peixaria.domain.model.Pescado;
+
 import javax.swing.*;
 public class VenderPeixeAcao implements Acao{
     private Estoque meuEstoque;

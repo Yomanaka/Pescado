@@ -1,5 +1,7 @@
+package br.edu.peixaria.domain.model;
+
 import java.time.LocalDate;
-public class Pescado {
+public class Pescado extends ItemPersistencia{
     private String nome ;
     private Especie especie;
     private double peso;
@@ -12,7 +14,8 @@ public class Pescado {
     }
 
     //inicio dos builders
-    public Pescado(String nome,Especie especie,double peso, double precoCompra){
+    public Pescado(String oid, String nome,Especie especie,double peso, double precoCompra){
+        super(oid, TipoEntidade.PESCADO);
         setEspecie(especie);
         setNome(nome);
         setPeso(peso);
