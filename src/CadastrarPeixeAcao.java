@@ -1,12 +1,13 @@
+import br.edu.peixaria.application.port.in.CriarPescadoUseCase;
 import br.edu.peixaria.domain.model.Pescado;
 
 import javax.swing.*;
 public class CadastrarPeixeAcao implements Acao{
-    private Estoque peixes;
+    private CriarPescadoUseCase criarPescadoUseCase;
 
 
-    public CadastrarPeixeAcao (Estoque peixes){
-        this.peixes = peixes;
+    public CadastrarPeixeAcao (CriarPescadoUseCase criarPescadoUseCase){
+        this.criarPescadoUseCase = criarPescadoUseCase;
     }
 
     @Override
@@ -34,9 +35,8 @@ public class CadastrarPeixeAcao implements Acao{
 
         try{
             //Recebe o novo peixe cadastrado
-            Pescado novoPeixe = new Pescado(peixe, especieEscolhida,peso ,preco);
             //Inlcui na lista / estoque dos peixes
-            peixes.adicionarPeixe(novoPeixe);
+            criarPescadoUseCase.cadastrarPescado(peixe, especieEscolhida, peso, preco);
             JOptionPane.showMessageDialog(null,"Peixe cadastrado com sucesso");
         }catch (Exception erro){
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar: " + erro.getMessage());

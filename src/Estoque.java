@@ -1,9 +1,10 @@
+import br.edu.peixaria.application.port.out.PescadoRepository;
 import br.edu.peixaria.domain.model.Pescado;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Estoque {
+public class Estoque implements PescadoRepository {
     private List<Pescado> listaDePeixes;
 
     public Estoque(){
@@ -30,5 +31,10 @@ public class Estoque {
     //retorna o tamanho da lista de peixes
     public int qtdPeixes(){
        return listaDePeixes.size();
+    }
+
+    @Override
+    public void salvarEstoque(Pescado novoPeixe) {
+        adicionarPeixe(novoPeixe);
     }
 }
